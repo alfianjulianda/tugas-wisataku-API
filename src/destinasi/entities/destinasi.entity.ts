@@ -1,0 +1,27 @@
+import { Field, Float, Int, ObjectType } from '@nestjs/graphql';
+import { Fasilitas } from '../../fasilitas/entities/fasilitas.entity';
+import { Ulasan } from '../../ulasan/entities/ulasan.entity';
+
+@ObjectType()
+export class Destinasi {
+  @Field(() => Int)
+  id: number;
+
+  @Field()
+  nama: string;
+
+  @Field()
+  kategori: string;
+
+  @Field(() => Float)
+  hargaTiket: number;
+
+  @Field(() => Float)
+  ratingRata: number;
+
+  @Field(() => [Ulasan], { nullable: true })
+  ulasan?: Ulasan[];
+
+  @Field(() => [Fasilitas], { nullable: true })
+  fasilitas?: Fasilitas[];
+}

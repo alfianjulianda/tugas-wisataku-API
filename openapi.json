@@ -1,30 +1,25 @@
 {
   "openapi": "3.0.0",
   "paths": {
-    "/": {
+    "/destinasi": {
       "get": {
-        "operationId": "AppController_getHello",
-        "parameters": [],
+        "operationId": "DestinasiController_findAll",
+        "parameters": [
+          {
+            "name": "kategori",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": ""
           }
         },
-        "tags": [
-          "App"
-        ]
-      }
-    },
-    "/destinasi": {
-      "get": {
-        "operationId": "DestinasiController_findAll",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "Daftar destinasi berhasil diambil"
-          }
-        },
-        "summary": "Menampilkan daftar destinasi wisata",
+        "summary": "Menampilkan daftar destinasi, dapat difilter berdasarkan kategori",
         "tags": [
           "Destinasi"
         ]
@@ -44,13 +39,10 @@
         },
         "responses": {
           "201": {
-            "description": "Destinasi berhasil dibuat"
-          },
-          "400": {
-            "description": "Data tidak valid"
+            "description": ""
           }
         },
-        "summary": "Menambahkan destinasi baru (khusus admin)",
+        "summary": "Menambahkan destinasi baru",
         "tags": [
           "Destinasi"
         ]
@@ -65,16 +57,15 @@
             "required": true,
             "in": "path",
             "schema": {
-              "type": "string"
+              "type": "number"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Detail destinasi berhasil diambil"
+            "description": ""
           }
         },
-        "summary": "Menampilkan detail destinasi wisata",
         "tags": [
           "Destinasi"
         ]
@@ -87,7 +78,7 @@
             "required": true,
             "in": "path",
             "schema": {
-              "type": "string"
+              "type": "number"
             }
           }
         ],
@@ -103,13 +94,10 @@
         },
         "responses": {
           "200": {
-            "description": "Destinasi berhasil diperbarui"
-          },
-          "400": {
-            "description": "Data tidak valid"
+            "description": ""
           }
         },
-        "summary": "Memperbarui destinasi wisata",
+        "summary": "Mengubah data destinasi",
         "tags": [
           "Destinasi"
         ]
@@ -122,16 +110,16 @@
             "required": true,
             "in": "path",
             "schema": {
-              "type": "string"
+              "type": "number"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Destinasi berhasil dihapus"
+            "description": ""
           }
         },
-        "summary": "Menghapus destinasi wisata",
+        "summary": "Menghapus destinasi",
         "tags": [
           "Destinasi"
         ]
@@ -168,8 +156,7 @@
           },
           "hargaTiket": {
             "type": "number",
-            "example": 15000,
-            "minimum": 0
+            "example": 15000
           }
         },
         "required": [
@@ -191,8 +178,7 @@
           },
           "hargaTiket": {
             "type": "number",
-            "example": 15000,
-            "minimum": 0
+            "example": 15000
           }
         }
       }
